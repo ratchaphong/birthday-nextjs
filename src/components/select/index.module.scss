@@ -1,0 +1,24 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.container {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: var(--border-input);
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+  background-color: var(--white-color);
+
+  &:hover {
+    border-color: var(--secondary-pink-hover);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px rgba(234, 55, 162, 0.2);
+    border-color: var(--secondary-pink-hover);
+  }
+}

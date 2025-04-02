@@ -1,26 +1,93 @@
-@import "tailwindcss";
+/* @import "tailwindcss"; */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --primary-yellow: #fad13e;
+  --primary-yellow-hover: #f1c939;
+  --secondary-pink: #ea37a2;
+  --secondary-pink-hover: #f763b7;
+  --white-color: #ffffff;
+  --red-color: #f5222d;
+  --primary-text-color: #070707;
+  --secondary-text-color: #4b5563;
+  --border-input: 1px solid #d9d9d9;
+  --font-english: "Poppins", sans-serif;
+  --font-thai: "Kanit", sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html[lang="en"] {
+  --font-family-base: var(--font-english);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html[lang="th"] {
+  --font-family-base: var(--font-thai);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family-base); /* ✅ ใช้ตาม locale */
+}
+/* box-sizing: border-box; ความกว้างและความสูงที่กำหนดจะครอบคลุมทั้งเนื้อหา, padding, และ border ด้วย นั่นหมายความว่าถ้ากำหนด width: 100px; แล้วใส่ padding 10px ทั้งซ้ายและขวา ความกว้างรวมของ element จะยังคงเป็น 100px โดย padding จะถูกนำมารวมอยู่ใน 100px นี้ ซึ่งช่วยให้การจัดวาง layout ง่ายขึ้นและเป็นมาตรฐานมากขึ้น */
+
+html,
+body {
+  /* width: 100%;
+  height: 100%; */
+  @apply w-full;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--white-color);
+  color: var(--primary-text-color);
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+}
+
+button.primary {
+  color: var(--primary-text-color);
+  background-color: var(--secondary-pink);
+  border-color: var(--secondary-pink);
+}
+
+button.primary:hover {
+  background-color: var(--secondary-pink-hover);
+  border-color: var(--secondary-pink-hover);
+}
+
+button.secondary {
+  background-color: var(--primary-yellow);
+  color: var(--primary-text-color);
+}
+
+button.secondary:hover {
+  background-color: var(--primary-yellow-hover);
+}
+
+input {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: var(--border-input);
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+  background-color: var(--white-color);
+}
+
+input:hover {
+  border-color: var(--secondary-pink-hover);
+  /* border-right-width: 1px !important; */
+}
+
+input:focus {
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(234, 55, 162, 0.2);
 }

@@ -1,0 +1,28 @@
+.container {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: fit-content !important;
+
+  // &.primary {
+  //   color: var(--primary-text-color);
+  //   background-color: var(--secondary-pink);
+
+  //   &:hover {
+  //     background-color: var(--secondary-pink-hover);
+  //     border-color: var(--secondary-pink-hover);
+  //   }
+  // }
+
+  &.secondary {
+    color: var(--primary-text-color) !important;
+    background-color: var(--primary-yellow) !important;
+
+    &:hover {
+      color: var(--primary-text-color) !important;
+      background-color: var(--primary-yellow-hover) !important;
+    }
+  }
+}

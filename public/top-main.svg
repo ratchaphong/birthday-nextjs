@@ -1,0 +1,31 @@
+<svg viewBox="0 0 1440 762" fill="none"
+  xmlns="http://www.w3.org/2000/svg">
+  <mask id="mask0_643_4716" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="-3" y="0" width="1443" height="762">
+    <rect x="-3" width="1443" height="762" fill="#C4C4C4" />
+  </mask>
+  <g mask="url(#mask0_643_4716)">
+    <path d="M1616.63 562.217C567.128 1094.09 -761.156 410.243 -1014.58 313.114L-572.314 -840.781L1805.12 70.4334L1616.63 562.217Z" fill="#DB1C8D" />
+    <mask id="mask1_643_4716" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="-3" y="0" width="1444" height="766">
+      <mask id="mask2_643_4716" style="mask-type: alpha" maskUnits="userSpaceOnUse" x="-3" y="0" width="1444" height="766">
+        <rect x="-3" width="1443.08" height="765.393" fill="#C4C4C4" />
+      </mask>
+      <g mask="url(#mask2_643_4716)">
+        <path d="M1616.37 530.548C566.862 1154.55 -761.421 352.252 -1014.84 238.298L-572.58 -1115.46L1804.85 -46.4162L1616.37 530.548Z" fill="#FAD13E" />
+      </g>
+    </mask>
+    <g mask="url(#mask1_643_4716)">
+      <Cllipse cx="1087.23" cy="667" rx="463.5" ry="463" fill="url(#paint0_linear_643_4716)" />
+      <circle opacity="0.2" cx="272.732" r="252" fill="url(#paint1_linear_643_4716)" />
+    </g>
+  </g>
+  <defs>
+    <linearGradient id="paint0_linear_643_4716" x1="891.665" y1="254.142" x2="985.35" y2="596.722" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C62383" />
+      <stop offset="1" stop-color="#DB1C8D" />
+    </linearGradient>
+    <linearGradient id="paint1_linear_643_4716" x1="236.5" y1="-63" x2="272.732" y2="252" gradientUnits="userSpaceOnUse">
+      <stop stop-color="white" stop-opacity="0" />
+      <stop offset="1" stop-color="white" />
+    </linearGradient>
+  </defs>
+</svg>

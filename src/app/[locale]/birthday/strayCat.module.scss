@@ -1,0 +1,324 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9e8d9;
+  padding: 1rem;
+  gap: 2rem;
+
+  &.sunset {
+    // background-color: #ffd8b2;
+    background: linear-gradient(
+      135deg,
+      #f9c9c0 0%,
+      #fdddbb 40%,
+      #fff4d2 70%,
+      #f3c5d0 100%
+    );
+  }
+
+  &.sunrise {
+    background-color: #ffd8b2;
+  }
+
+  .image-wrapper {
+    height: 80vh;
+    aspect-ratio: 1 / 2; // กว้าง:สูง = 1:2
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: blink 1.5s ease-in-out infinite;
+    position: relative;
+
+    &:hover {
+      animation: stopBlinkSmooth 0.8s ease forwards;
+    }
+
+    img {
+      height: 100%;
+      width: auto;
+      image-rendering: pixelated;
+    }
+
+    .hotspot {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      cursor: pointer;
+      z-index: 2;
+      // border: 2px solid red; // แสดงไว้เทสต์ก่อน ลบออกทีหลัง
+
+      > p {
+        opacity: 0;
+        pointer-events: none;
+        white-space: nowrap;
+        font-size: 1rem;
+        font-family: "Press Start 2P", cursive;
+        color: #5d3724;
+        text-shadow: 1px 1px #a06138, 2px 2px #f4d19b; /* สีซ้อนเบา ๆ */
+        width: 0;
+        animation: none;
+      }
+
+      &:hover > p {
+        width: fit-content;
+        opacity: 1;
+        pointer-events: auto;
+        animation: dropIn 0.8s ease-out forwards;
+      }
+    }
+
+    .hotspot.hint1 {
+      top: 30%;
+      left: 50%; // ตำแหน่งแนวนอน
+    }
+
+    .hotspot.hint2 {
+      top: 30%;
+      left: 15%; // ตำแหน่งแนวนอน
+    }
+
+    .hotspot.hint3 {
+      top: 0%;
+      left: 15%; // ตำแหน่งแนวนอน
+    }
+
+    .hotspot.hint4 {
+      top: 100%;
+      left: 100%; // ตำแหน่งแนวนอน
+      transform: translate(-100%, -100%);
+    }
+
+    .hotspot.hint3:hover ~ img,
+    .hotspot.hint4:hover ~ img {
+      animation: shakeLoop 8s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0.6;
+      }
+    }
+
+    @keyframes stopBlinkSmooth {
+      0% {
+        opacity: 0.6;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes dropIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-10px);
+        filter: blur(2px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes shakeLoop {
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+      10% {
+        transform: translateX(-3px);
+      }
+      20% {
+        transform: translateX(3px);
+      }
+      30% {
+        transform: translateX(-2px);
+      }
+      40% {
+        transform: translateX(2px);
+      }
+      50% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(0); // พักต่อ
+      }
+    }
+  }
+
+  .treasure-wrapper {
+    height: 80vh;
+    aspect-ratio: 1.2 / 2; // กว้าง:สูง = 1.2:2
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // animation: glowPulse 3s ease-in-out infinite;
+    // animation: popIn 1s ease-out both;
+    animation: bounceReveal 0.8s ease-out forwards;
+    perspective: 1000px; // ให้ดูมีมิติ
+    cursor: pointer;
+    // background-color: red;
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s ease;
+    }
+
+    &.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .front,
+    .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      image-rendering: pixelated;
+      object-fit: cover;
+    }
+
+    .front {
+      z-index: 2;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    @keyframes glowPulse {
+      0%,
+      100% {
+        filter: drop-shadow(0 0 4px #ffc0cb);
+        transform: scale(1);
+      }
+      50% {
+        filter: drop-shadow(0 0 8px #ff99cc);
+        transform: scale(1.02);
+      }
+    }
+
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      80% {
+        transform: scale(1.05);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes bounceReveal {
+      0% {
+        transform: scale(0) rotate(10deg);
+        opacity: 0;
+      }
+      70% {
+        transform: scale(1.1) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .ct-wrapper {
+    height: 80vh;
+    aspect-ratio: 1 / 2; // กว้าง:สูง = 1:2
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: glowPulse 3s ease-in-out infinite;
+    // animation: pixelGlow 3s ease-in-out infinite;
+
+    img {
+      height: 100%;
+      width: auto;
+      image-rendering: pixelated;
+    }
+
+    @keyframes glowPulse {
+      0%,
+      100% {
+        filter: drop-shadow(0 0 4px #e6a67d);
+      }
+      50% {
+        filter: drop-shadow(0 0 10px #c58c73);
+      }
+    }
+
+    @keyframes pixelGlow {
+      0%,
+      100% {
+        filter: drop-shadow(0 0 2px #ffffff) drop-shadow(0 0 4px #ffd8b2)
+          drop-shadow(0 0 6px #f3a395);
+      }
+      50% {
+        filter: drop-shadow(0 0 2px #ffffff) drop-shadow(0 0 6px #ffc4c4)
+          drop-shadow(0 0 10px #f4978e);
+      }
+    }
+  }
+
+  .textbox {
+    background-color: #f4d19b;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    /* ขอบพิกเซลแนว bubble สลับเข้ม/อ่อน */
+    /* กล่อง 8-bit: แทน border ด้วย box-shadow หลายชั้นแบบ block */
+    box-shadow: 0 0 0 2px #a06138, /* outer border */ 4px 4px 0 0 #a06138,
+      /* hard drop shadow block */ 8px 8px 0 0 #5d3724;
+    /* deeper shadow for 8-bit depth */
+    animation: floatBox 2s ease-in-out infinite;
+
+    > h1 {
+      font-size: 1rem;
+      font-family: "Press Start 2P", cursive;
+      color: #5d3724;
+      /* ข้อความมีเงาแนว pixel block */
+      text-shadow: 1px 1px #a06138, 2px 2px #f4d19b, 3px 3px #a06138;
+    }
+
+    &.sunset {
+      background-color: #fff4e4; // พื้นกล่องสีพีชอ่อน
+      padding: 0.75rem 1.5rem;
+      border: 2px solid #f3a395; // ขอบชมพูอ่อนแบบแนว pixel
+      box-shadow: 3px 3px 0 #e37d78, 6px 6px 0 #c26366; // เงา 8bit block
+      border-radius: 4px; // ถ้าชอบแนว pixel ก็เอาออกได้
+      display: inline-block;
+
+      h1 {
+        font-family: "Press Start 2P", cursive;
+        font-size: 1rem;
+        color: #5d2f2f; // น้ำตาลแดงเข้ม อ่านง่ายบนพื้นอ่อน
+        text-shadow: 1px 1px #f3a395, 2px 2px #fff4e4;
+      }
+    }
+
+    @keyframes floatBox {
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+  }
+}

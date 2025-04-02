@@ -1,0 +1,88 @@
+.container {
+  background-image: url("/top-main.svg");
+  background-size: cover; /* ปรับให้เต็มพื้นที่ */
+  background-position: center; /* จัดให้อยู่ตรงกลาง */
+  background-repeat: no-repeat;
+  min-height: 100vh; /* ปรับให้ครอบคลุมหน้าจอ */
+  display: flex;
+  align-items: center;
+
+  section {
+    flex: 1;
+  }
+
+  section:first-of-type > div {
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    h1,
+    p {
+      color: var(--white-color);
+    }
+  }
+}
+
+.form {
+  border-radius: 1rem;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 60%;
+  width: 100%;
+  background-color: var(--white-color);
+
+  > div:first-of-type {
+    display: flex;
+    border-bottom: 2px solid var(--primary-yellow);
+
+    button {
+      flex: 1;
+      background-color: var(--white-color);
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+
+      &.active {
+        background-color: var(--primary-yellow);
+        color: var(--primary-text-color);
+      }
+    }
+  }
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* CSS */
+// nav li {
+//    display: inline-block;
+// }
+
+// nav a {
+//    display: block;
+//    padding: 6px 12px;
+//    text-decoration: none;
+// }
+
+/* SCSS */
+// nav {
+//    ul {
+//       margin: 0;
+//       padding: 0;
+//       list-style: none;
+//    }
+
+//    li { display: inline-block; }
+
+//    a {
+//       display: block;
+//       padding: 6px 12px;
+//       text-decoration: none;
+//    }
+// }
