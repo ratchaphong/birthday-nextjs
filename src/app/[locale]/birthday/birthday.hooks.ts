@@ -8,15 +8,15 @@ export default function useBirthdayUI() {
   const [status, setStatus] = useState<CountdownStatus>("before");
   const [targetDate, setTargetDate] = useState<Date>(() => {
     const now = new Date();
-    let date = new Date(now.getFullYear(), 4, 7, 0, 0, 0); // 7 พ.ค.
+    const target = new Date(now.getFullYear(), 4, 7); // 7 พ.ค. (เดือนเริ่มจาก 0)
 
-    if (now > date) {
-      // ถ้าเลยแล้วให้ใช้ของปีถัดไป
-      date = new Date(now.getFullYear() + 1, 4, 7, 0, 0, 0);
+    // ถ้าวันนี้เลยวันที่ 7 พ.ค. (ไม่ใช่วันเดียวกัน) ให้เลื่อนไปปีหน้า
+    if (now.toDateString() !== target.toDateString() && now > target) {
       setStatus("after");
+      return new Date(now.getFullYear() + 1, 4, 7);
     }
 
-    return date;
+    return target;
   });
 
   useEffect(() => {
